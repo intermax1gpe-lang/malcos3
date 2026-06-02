@@ -1,17 +1,45 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
+import TopBar from '../components/TopBar.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import Nosotros from '../components/Nosotros.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+import Beneficios from '../components/Beneficios.astro';
+import Cotizacion from '../components/Cotizacion.astro';
+import TechBanner from '../components/TechBanner.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppFloat from '../components/WhatsAppFloat.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout>
+  <!-- Cabecera de contactos -->
+  <TopBar />
+  
+  <!-- Barra de navegación -->
+  <Navbar />
+  
+  <!-- Portada Principal (Hero) -->
+  <Hero />
+  
+  <!-- Información sobre la empresa -->
+  <Nosotros />
+  
+  <!-- Banner de Llamado a la Acción -->
+  <CtaBanner />
+  
+  <!-- Cuadrícula de Beneficios -->
+  <Beneficios />
+  
+  <!-- Formulario de Cotización a WhatsApp -->
+  <Cotizacion />
+  
+  <!-- Banner de Equipo Técnico -->
+  <TechBanner />
+  
+  <!-- Pie de página -->
+  <Footer />
+  
+  <!-- Botón flotante de WhatsApp -->
+  <WhatsAppFloat />
+</Layout>

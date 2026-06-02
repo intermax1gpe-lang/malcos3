@@ -1,0 +1,37 @@
+---
+const items = [
+  { icon: '💰', title: 'Ahorro',         desc: 'Mejores precios del mercado con calidad garantizada y repuestos originales.' },
+  { icon: '⚡', title: 'Rapidez',        desc: 'Instalación y mantenimiento en Lima Metropolitana en un plazo de 24–48 horas.' },
+  { icon: '📹', title: 'Vigilancia',     desc: 'Control visual y auditivo de accesos en tiempo real para mayor tranquilidad.' },
+  { icon: '📞', title: 'Comunicación',   desc: 'Intercomunicación clara, nítida y segura entre todos los ambientes.' },
+  { icon: '🛡️', title: 'Seguridad',     desc: 'Protección eficiente para tu hogar, edificio, condominio u oficina.' },
+  { icon: '✅', title: 'Garantía',       desc: 'Hasta 12 meses de garantía en todos los equipos y mano de obra de instalación.' },
+];
+---
+<section
+  class="bg-slate-50 flex flex-col items-center justify-center px-6 md:px-12 py-20"
+  style="min-height: 100vh;"
+>
+  <div class="text-center max-w-xl mb-16">
+    <span class="text-brand-orange text-xs font-extrabold uppercase tracking-widest mb-3 inline-block">
+      Nuestros Valores
+    </span>
+    <h2 class="text-3xl md:text-4xl font-black text-brand-blue uppercase leading-tight">
+      ¿Por qué elegirnos?
+    </h2>
+    <div class="w-16 h-1.5 bg-brand-orange mx-auto my-4 rounded"></div>
+    <p class="text-slate-500 text-sm md:text-base leading-relaxed">
+      Más de 10 años protegiendo hogares y empresas en Lima Metropolitana con tecnología de intercomunicación líder.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-5xl">
+    {items.map((item) => (
+      <div class="bg-white border border-slate-100 rounded-2xl p-8 md:p-10 text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
+        <div class="text-4xl md:text-5xl mb-6 transform group-hover:scale-110 transition-transform duration-300">{item.icon}</div>
+        <h3 class="text-lg font-black text-brand-blue mb-3 uppercase tracking-wide">{item.title}</h3>
+        <p class="text-xs md:text-sm text-slate-500 leading-relaxed">{item.desc}</p>
+      </div>
+    ))}
+  </div>
+</section>

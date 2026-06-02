@@ -1,0 +1,57 @@
+---
+import { brands } from '../data/brands';
+---
+<section
+  class="relative flex flex-col justify-between"
+  style="min-height: calc(100vh - 80px);"
+>
+  <!-- Fondo con overlay -->
+  <div
+    class="absolute inset-0 bg-cover bg-center"
+    style="background-image: url('/images/hero-bg.jpg');"
+  ></div>
+  <div class="absolute inset-0 bg-gradient-to-b from-[#0a1437]/75 via-[#0a1437]/60 to-black/85"></div>
+
+  <!-- Contenido principal -->
+  <div class="relative flex-1 flex items-center px-6 md:px-20 py-16 md:py-24">
+    <div class="max-w-2xl">
+      <!-- Badge -->
+      <span class="inline-block mb-6 bg-brand-orange/20 border border-brand-orange text-amber-400 text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest">
+        🔒 Distribuidor Autorizado · Lima, Perú
+      </span>
+      <!-- Título -->
+      <h1 class="text-4xl md:text-6xl font-black text-white uppercase leading-[1.08] mb-5 tracking-tight">
+        Ten el control<br />de quién<br />entra y sale!
+      </h1>
+      <!-- Subtítulo -->
+      <p class="text-base md:text-lg text-slate-300 leading-relaxed max-w-lg mb-8">
+        Con nuestros productos podrás hacerlo desde la comodidad de tu hogar, oficina o departamento.
+      </p>
+      <!-- CTA -->
+      <a
+        href="#cotizar"
+        class="inline-block bg-brand-orange text-white px-9 py-4 rounded font-extrabold text-sm uppercase tracking-widest hover:bg-orange-600 transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg shadow-brand-orange/30"
+      >
+        Contáctanos
+      </a>
+    </div>
+  </div>
+
+  <!-- Franja de 4 marcas al pie del hero -->
+  <div class="relative grid grid-cols-2 md:grid-cols-4 border-t border-white/10 bg-black/60 backdrop-blur-sm">
+    {brands.map((b) => (
+      <a
+        href={`#${b.slug}`}
+        class="group flex flex-col items-center justify-center gap-2 py-6 px-4 border-r border-b border-white/10 md:border-b-0 last:border-r-0 hover:bg-brand-orange/15 transition-all duration-300"
+      >
+        <img
+          src={b.logo}
+          alt={b.name}
+          class="h-7 md:h-9 object-contain brightness-0 invert group-hover:brightness-100 group-hover:invert-0 transition-all duration-300"
+        />
+        <span class="text-slate-400 text-[10px] md:text-xs text-center font-medium">{b.subtitle}</span>
+        <span class="text-brand-orange text-[10px] md:text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300">Ver productos →</span>
+      </a>
+    ))}
+  </div>
+</section>

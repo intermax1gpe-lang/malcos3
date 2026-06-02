@@ -1,0 +1,44 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'MALCOS S.A.C. — Intercomunicadores en Lima, Perú',
+  description = 'Venta e instalación de intercomunicadores COMMAX, YUSPHONE, BELCOM y KOCOM en Lima. Distribuidor autorizado. Solicita tu cotización.',
+} = Astro.props;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'MALCOS S.A.C.',
+  description,
+  telephone: '+51934852558',
+  email: 'ventas@malcos.com.pe',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Calle Don Pompeyo Mz. C2 Lt. 4, Urb. Santa Rosa',
+    addressLocality: 'Surco',
+    addressRegion: 'Lima',
+    addressCountry: 'PE',
+  },
+  url: 'https://malcos.com.pe',
+};
+---
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="icon" type="image/png" href="/brands/logo-malcos.png" />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body class="font-sans antialiased text-slate-800 bg-white">
+    <slot />
+  </body>
+</html>
