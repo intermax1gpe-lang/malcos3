@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mockup v3 — MALCOS Hero Full Height</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; color:#1e293b; font-size:13px; }
+
+  /* TOP BAR */
+  .topbar { background:white; border-bottom:1px solid #e2e8f0; padding:10px 40px; display:flex; justify-content:space-between; align-items:center; }
+  .topbar-logo img { height:52px; display:block; }
+  .topbar-contacts { display:flex; gap:28px; align-items:center; }
+  .contact-item { display:flex; align-items:center; gap:10px; }
+  .contact-icon { width:34px; height:34px; border:2px solid #1d4ed8; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#1d4ed8; font-size:15px; flex-shrink:0; }
+  .contact-main { font-size:16px; font-weight:800; color:#1d4ed8; line-height:1.1; }
+  .contact-label { font-size:10px; color:#64748b; }
+
+  /* NAVBAR */
+  nav { background:#1a4f9c; padding:0 40px; display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; z-index:100; }
+  nav ul { list-style:none; display:flex; }
+  nav ul li a { display:block; padding:14px 16px; color:white; font-size:12px; font-weight:600; text-decoration:none; text-transform:uppercase; letter-spacing:0.5px; }
+  nav ul li.active a { background:rgba(0,0,0,0.25); }
+  .nav-social { display:flex; gap:14px; align-items:center; }
+  .nav-social a { color:white; font-size:14px; text-decoration:none; opacity:0.85; font-weight:600; }
+
+  /* HERO — FULL HEIGHT */
+  .hero {
+    position:relative;
+    height: calc(100vh - 110px); /* minus topbar+navbar */
+    min-height: 600px;
+    background: linear-gradient(rgba(15,30,60,0.72), rgba(10,20,50,0.80)),
+                url('https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=1600&q=80') center/cover no-repeat;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    padding:0;
+    overflow:hidden;
+  }
+
+  /* Hero top: main text */
+  .hero-body {
+    flex:1;
+    display:flex;
+    align-items:center;
+    padding:60px 64px;
+  }
+  .hero-content { max-width:620px; }
+  .hero-badge { display:inline-block; background:rgba(247,148,29,0.2); border:1px solid #f7941d; color:#fbbf24; font-size:10px; font-weight:700; padding:4px 14px; border-radius:20px; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:18px; }
+  .hero h1 { font-size:48px; font-weight:900; color:white; line-height:1.1; margin-bottom:16px; text-transform:uppercase; }
+  .hero p { font-size:16px; color:#cbd5e1; margin-bottom:28px; line-height:1.7; max-width:480px; }
+  .btn-orange { display:inline-block; background:#f7941d; color:white; padding:14px 32px; border-radius:5px; font-size:13px; font-weight:800; text-transform:uppercase; letter-spacing:1px; border:none; cursor:pointer; }
+
+  /* Hero bottom: brand strip */
+  .hero-brands {
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid rgba(255,255,255,0.12);
+    background: rgba(0,0,0,0.45);
+    backdrop-filter: blur(4px);
+  }
+  .hero-brand-btn {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding: 22px 16px;
+    cursor:pointer;
+    border-right: 1px solid rgba(255,255,255,0.10);
+    text-decoration:none;
+    transition: background 0.2s;
+    gap:8px;
+  }
+  .hero-brand-btn:last-child { border-right:none; }
+  .hero-brand-btn:hover { background:rgba(247,148,29,0.18); }
+  .brand-logo-text { font-size:22px; font-weight:900; letter-spacing:0.5px; }
+  .brand-commax { color:#ff4444; }
+  .brand-yus-wrap { border:3px solid #ff4444; border-radius:50%; padding:4px 10px; }
+  .brand-yus-text { color:#ff4444; font-size:18px; font-weight:900; }
+  .brand-belcom { color:white; }
+  .brand-kocom { color:white; }
+  .brand-sublabel { font-size:10px; color:#94a3b8; font-weight:500; letter-spacing:0.5px; }
+  .brand-arrow { font-size:11px; color:#f7941d; font-weight:700; }
+
+  /* NOSOTROS */
+  .nosotros { display:grid; grid-template-columns:1fr 1fr; min-height:100vh; }
+  .nosotros-img { background:url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80') center/cover; }
+  .nosotros-text { padding:56px 48px; display:flex; flex-direction:column; justify-content:center; }
+  .nosotros-text h2 { font-size:30px; font-weight:800; color:#1e293b; margin-bottom:14px; }
+  .nosotros-text p { font-size:13px; color:#475569; line-height:1.8; margin-bottom:16px; }
+  .brand-list { list-style:none; margin-bottom:24px; }
+  .brand-list li { display:flex; align-items:center; gap:10px; padding:7px 0; font-size:13px; font-weight:700; color:#1e293b; border-bottom:1px solid #f1f5f9; }
+  .brand-list li::before { content:''; width:10px; height:10px; border-radius:50%; background:#f7941d; flex-shrink:0; }
+
+  /* CTA BANNER */
+  .cta-banner { background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1400&q=80') center/cover; padding:48px 64px; min-height:30vh; display:flex; align-items:center; justify-content:space-between; gap:32px; }
+  .cta-banner h2 { font-size:30px; font-weight:900; color:white; max-width:520px; line-height:1.25; }
+  .cta-circle { width:110px; height:110px; border-radius:50%; border:4px solid #f7941d; background:rgba(247,148,29,0.15); display:flex; flex-direction:column; align-items:center; justify-content:center; flex-shrink:0; }
+  .cta-circle .num { font-size:34px; font-weight:900; color:#f7941d; line-height:1; }
+  .cta-circle .unit { font-size:11px; color:#f7941d; font-weight:700; }
+
+  /* BENEFITS */
+  .benefits { background:#f8fafc; padding:44px 40px; min-height:100vh; display:flex; flex-direction:column; justify-content:center; }
+  .benefits-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; max-width:900px; margin:16px auto 0; }
+  .benefit-card { background:white; border:1px solid #e2e8f0; border-radius:10px; padding:22px; text-align:center; }
+  .benefit-icon { font-size:30px; margin-bottom:10px; }
+  .benefit-title { font-size:13px; font-weight:800; color:#1a4f9c; margin-bottom:5px; }
+  .benefit-desc { font-size:11px; color:#64748b; line-height:1.5; }
+  .section-title { text-align:center; font-size:22px; font-weight:800; color:#1a4f9c; }
+
+  /* FORM */
+  .form-section { background:#2d2d2d; padding:56px 64px; min-height:100vh; display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; }
+  .form-box h3 { font-size:22px; font-weight:800; color:white; text-align:center; margin-bottom:6px; line-height:1.35; }
+  .form-box .form-sub { font-size:12px; color:#9ca3af; text-align:center; margin-bottom:20px; }
+  .form-box input, .form-box textarea { width:100%; background:white; border:none; border-radius:4px; padding:11px 14px; font-size:12px; color:#1e293b; margin-bottom:10px; outline:none; }
+  .form-box textarea { height:80px; resize:none; }
+  .btn-red { background:#e53e3e; color:white; width:100%; padding:13px; border:none; border-radius:4px; font-size:13px; font-weight:800; text-transform:uppercase; letter-spacing:1px; cursor:pointer; }
+  .form-note { font-size:10px; color:#6b7280; text-align:center; margin-top:8px; }
+  .form-cta h2 { font-size:26px; font-weight:800; color:white; line-height:1.35; margin-bottom:14px; }
+  .form-cta p { font-size:13px; color:#9ca3af; line-height:1.8; }
+
+  /* TECH BANNER */
+  .tech-banner { background:linear-gradient(90deg,#1a4f9c 52%,transparent 52%), url('https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=1400&q=80') right center/cover; padding:56px 64px; min-height:30vh; display:flex; align-items:center; }
+  .tech-banner h2 { font-size:34px; font-weight:900; color:white; text-transform:uppercase; line-height:1.2; max-width:480px; }
+
+  /* FOOTER */
+  footer { background:#333; padding:40px 64px; display:grid; grid-template-columns:1.5fr 1fr 1fr; gap:36px; }
+  .footer-logo img { height:44px; display:block; margin-bottom:4px; }
+  .footer-logo p { font-size:11px; color:#9ca3af; margin-top:10px; line-height:1.7; }
+  footer h4 { font-size:13px; font-weight:700; color:white; margin-bottom:10px; }
+  footer address { font-size:12px; color:#9ca3af; font-style:normal; line-height:1.8; }
+  .footer-phone { font-size:30px; font-weight:900; color:white; line-height:1.1; }
+  .footer-email { font-size:12px; color:#9ca3af; margin-top:8px; }
+  .footer-bottom { background:#222; text-align:center; padding:12px; font-size:11px; color:#6b7280; }
+
+  /* WA FLOAT */
+  .wa-float { position:fixed; bottom:24px; right:24px; background:#25d366; width:52px; height:52px; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 20px rgba(37,211,102,0.55); cursor:pointer; z-index:999; }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-logo">
+    <img src="https://malcos.com.pe/wp-content/uploads/2024/01/logo-malcos-01.png" alt="MALCOS Intercomunicadores">
+  </div>
+  <div class="topbar-contacts">
+    <div class="contact-item">
+      <div class="contact-icon">📞</div>
+      <div>
+        <div class="contact-main">934 852 558</div>
+        <div class="contact-label">Celular</div>
+      </div>
+    </div>
+    <div class="contact-item">
+      <div class="contact-icon">✉️</div>
+      <div>
+        <div class="contact-main" style="font-size:13px;">ventas@malcos.com.pe</div>
+        <div class="contact-label">Email</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav>
+  <ul>
+    <li class="active"><a href="#">Inicio</a></li>
+    <li><a href="#">COMMAX ▾</a></li>
+    <li><a href="#">YUSPHONE ▾</a></li>
+    <li><a href="#">BELCOM ▾</a></li>
+    <li><a href="#">KOCOM ▾</a></li>
+  </ul>
+  <div class="nav-social">
+    <a href="#">FB</a>
+    <a href="#">IG</a>
+  </div>
+</nav>
+
+<!-- HERO FULL HEIGHT -->
+<section class="hero">
+
+  <!-- Texto principal -->
+  <div class="hero-body">
+    <div class="hero-content">
+      <div class="hero-badge">🔒 Distribuidor Autorizado · Lima, Perú</div>
+      <h1>Ten el control de<br>quién entra<br>y sale!</h1>
+      <p>Con nuestros productos podrás hacerlo desde la comodidad de tu hogar, oficina o departamento.</p>
+      <button class="btn-orange">Contáctanos</button>
+    </div>
+  </div>
+
+  <!-- Franja de marcas en la parte inferior del hero -->
+  <div class="hero-brands">
+
+    <a href="#commax" class="hero-brand-btn">
+      <span class="brand-logo-text brand-commax">COMMAX®</span>
+      <span class="brand-sublabel">Videoporteros · Sistemas IP</span>
+      <span class="brand-arrow">Ver productos →</span>
+    </a>
+
+    <a href="#yusphone" class="hero-brand-btn">
+      <span class="brand-yus-wrap">
+        <span class="brand-yus-text">YU'S</span>
+      </span>
+      <span class="brand-sublabel">YUSPHONE · Residencial</span>
+      <span class="brand-arrow">Ver productos →</span>
+    </a>
+
+    <a href="#belcom" class="hero-brand-btn">
+      <span class="brand-logo-text brand-belcom">BELCOM®</span>
+      <span class="brand-sublabel">Edificios · Condominios</span>
+      <span class="brand-arrow">Ver productos →</span>
+    </a>
+
+    <a href="#kocom" class="hero-brand-btn">
+      <span class="brand-logo-text brand-kocom">KOCOM</span>
+      <span class="brand-sublabel">Control de acceso</span>
+      <span class="brand-arrow">Ver productos →</span>
+    </a>
+
+  </div>
+</section>
+
+<!-- NOSOTROS -->
+<section class="nosotros">
+  <div class="nosotros-img"></div>
+  <div class="nosotros-text">
+    <h2>Nosotros</h2>
+    <p>Somos una Empresa peruana dedicada a la Importación e Distribución de INTERCOMUNICADORES, VIDEO PORTEROS, SISTEMAS DIGITALES Y ANÁLOGAS, Cerraduras Eléctricas y Accesorios.</p>
+    <p style="font-weight:700;font-size:12px;color:#475569;margin-bottom:8px;">MARCAS DE LÍDER MUNDIAL en Intercomunicadores</p>
+    <ul class="brand-list">
+      <li>COMMAX</li>
+      <li>YUSPHONE</li>
+      <li>BELCOM</li>
+      <li>KOCOM</li>
+    </ul>
+    <button class="btn-orange">Más información</button>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <h2>¡Conecta Tu Espacio,<br>Transforma Tu Comunicación!</h2>
+  <div class="cta-circle">
+    <div class="num">24</div>
+    <div class="unit">HORAS</div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits">
+  <div class="section-title">¿Por qué elegirnos?</div>
+  <div class="benefits-grid">
+    <div class="benefit-card"><div class="benefit-icon">💰</div><div class="benefit-title">Ahorro</div><div class="benefit-desc">Mejores precios del mercado con calidad garantizada</div></div>
+    <div class="benefit-card"><div class="benefit-icon">⚡</div><div class="benefit-title">Rapidez</div><div class="benefit-desc">Instalación en Lima Metropolitana en 24–48 h</div></div>
+    <div class="benefit-card"><div class="benefit-icon">📹</div><div class="benefit-title">Vigilancia</div><div class="benefit-desc">Control visual de accesos en tiempo real</div></div>
+    <div class="benefit-card"><div class="benefit-icon">📞</div><div class="benefit-title">Comunicación</div><div class="benefit-desc">Intercomunicación clara entre ambientes</div></div>
+    <div class="benefit-card"><div class="benefit-icon">🛡️</div><div class="benefit-title">Seguridad</div><div class="benefit-desc">Protege tu hogar, edificio u oficina</div></div>
+    <div class="benefit-card"><div class="benefit-icon">✅</div><div class="benefit-title">Garantía</div><div class="benefit-desc">12 meses en equipos y mano de obra</div></div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="form-section" id="cotizar">
+  <div class="form-box">
+    <h3>Solicite su Cotización<br>Personalizada Hoy</h3>
+    <p class="form-sub">y Dé el Primer Paso Hacia la Realización de Sus Metas</p>
+    <input type="text" placeholder="Nombres">
+    <input type="email" placeholder="Email">
+    <input type="tel" placeholder="Celular">
+    <textarea placeholder="Mensaje"></textarea>
+    <button class="btn-red">📋 ENVIAR</button>
+    <p class="form-note">Al enviar se abrirá WhatsApp con tu consulta → +51 934 852 558</p>
+  </div>
+  <div class="form-cta">
+    <h2>Si lo desea, permítanos ser parte de su camino hacia el éxito.</h2>
+    <p>Estamos listos y dispuestos a brindarle nuestra experta asistencia en su proyecto.</p>
+  </div>
+</section>
+
+<!-- TECH BANNER -->
+<section class="tech-banner">
+  <h2>Profesionales técnicos<br>de alta calificación<br>y amplia experiencia<br>a su servicio.</h2>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <img src="https://malcos.com.pe/wp-content/uploads/2024/01/logo-malcos-01.png" alt="MALCOS Intercomunicadores">
+    <p>Somos una Empresa peruana dedicada a la Importación e Distribución de INTERCOMUNICADORES, VIDEO PORTEROS, SISTEMAS DIGITALES Y ANÁLOGAS, Cerraduras Eléctricas y Accesorios.</p>
+  </div>
+  <div>
+    <h4>Ubícanos</h4>
+    <address>📍 Calle Don Pompeyo Mz. C2 Lt. 4<br>Urbanización Santa Rosa - Surco<br>Lima, Perú</address>
+  </div>
+  <div>
+    <h4>Contáctenos</h4>
+    <div class="footer-phone">934 852<br>558</div>
+    <div class="footer-email">✉️ ventas@malcos.com.pe</div>
+  </div>
+</footer>
+<div class="footer-bottom">derechos reservados MALCOS®</div>
+
+<!-- WA FLOAT -->
+<div class="wa-float">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</div>
+
+</body>
+</html>

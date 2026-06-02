@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-Command *)",
+      "PowerShell(npm show *)",
+      "PowerShell(npm install *)",
+      "PowerShell(uipro init *)",
+      "Bash(bash \"C:\\\\Users\\\\InterMAX24\\\\.claude\\\\plugins\\\\cache\\\\claude-plugins-official\\\\superpowers\\\\5.1.0\\\\skills\\\\brainstorming\\\\scripts\\\\start-server.sh\" --project-dir \"C:\\\\Users\\\\InterMAX24\\\\Documents\\\\PROYECT_JUNIO\\\\MALCOS3\")",
+      "PowerShell($stateDir = \"C:\\\\Users\\\\InterMAX24\\\\Documents\\\\PROYECT_JUNIO\\\\MALCOS3\\\\.superpowers\\\\brainstorm\\\\3884-1780409918\\\\state\"; if \\(Test-Path \"$stateDir\\\\server-info\"\\) { Get-Content \"$stateDir\\\\server-info\" } else { Write-Host \"server-info no encontrado aun\" })",
+      "mcp__Claude_in_Chrome__computer",
+      "WebFetch(domain:malcos.com.pe)",
+      "mcp__Claude_in_Chrome__javascript_tool",
+      "PowerShell(Copy-Item \"C:\\\\Users\\\\InterMAX24\\\\Documents\\\\PROYECT_JUNIO\\\\MALCOS3\\\\.superpowers\\\\brainstorm\\\\3884-1780409918\\\\content\\\\mockup-v3.html\" \"C:\\\\Users\\\\InterMAX24\\\\Documents\\\\PROYECT_JUNIO\\\\MALCOS3\\\\.superpowers\\\\brainstorm\\\\3884-1780409918\\\\content\\\\restored.html\" -Force)"
+    ]
+  }
+}
