@@ -1,0 +1,104 @@
+---
+import { commaxProducts } from '../data/commaxProducts';
+---
+
+<section id="commax" class="bg-white py-16 md:py-24">
+  <div class="max-w-7xl mx-auto px-6 md:px-12">
+
+    <!-- Cabecera -->
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+      <div>
+        <span class="text-brand-orange text-xs font-extrabold uppercase tracking-widest mb-3 block">Catálogo COMMAX</span>
+        <h2 class="text-3xl md:text-4xl font-black text-slate-900 uppercase leading-tight">
+          Productos <span class="text-brand-blue">COMMAX</span>
+        </h2>
+        <p class="text-slate-500 text-sm mt-2 max-w-md">Intercomunicadores, videoporteros y sistemas de audio para casa, oficina y edificio.</p>
+      </div>
+      <img
+        src="/brands/logo-commax.png"
+        alt="COMMAX"
+        class="h-8 object-contain opacity-80"
+      />
+    </div>
+
+    <!-- Tabs de categorías -->
+    <div class="mb-8 flex flex-wrap gap-2" id="commax-tabs">
+      {commaxProducts.map((cat, i) => (
+        <button
+          data-tab={cat.slug}
+          class={`tab-btn px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wide border transition-all duration-200 ${i === 0 ? 'bg-brand-blue text-white border-brand-blue' : 'bg-white text-slate-600 border-slate-200 hover:border-brand-blue hover:text-brand-blue'}`}
+        >
+          {cat.category}
+        </button>
+      ))}
+    </div>
+
+    <!-- Paneles de productos -->
+    {commaxProducts.map((cat, i) => (
+      <div
+        id={`panel-${cat.slug}`}
+        class={`product-panel grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6 ${i !== 0 ? 'hidden' : ''}`}
+      >
+        {cat.products.map((p) => (
+          <a
+            href={p.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group bg-white border border-slate-100 rounded-xl p-4 flex flex-col items-center gap-3 hover:shadow-lg hover:border-brand-orange/40 transition-all duration-300"
+          >
+            <div class="w-full aspect-square flex items-center justify-center overflow-hidden rounded-lg bg-slate-50 p-3">
+              <img
+                src={p.img}
+                alt={p.name}
+                class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                loading="lazy"
+              />
+            </div>
+            <p class="text-xs font-semibold text-slate-700 text-center leading-snug group-hover:text-brand-blue transition-colors">
+              {p.name}
+            </p>
+            <span class="text-[10px] font-bold text-brand-orange uppercase tracking-wide opacity-0 group-hover:opacity-100 transition-opacity">
+              Ver detalle →
+            </span>
+          </a>
+        ))}
+      </div>
+    ))}
+
+    <!-- CTA -->
+    <div class="mt-12 text-center">
+      <a
+        href="#cotizar"
+        class="inline-block bg-brand-orange text-white px-10 py-4 rounded font-extrabold text-sm uppercase tracking-widest hover:bg-orange-600 transition-colors shadow-md shadow-brand-orange/20"
+      >
+        Solicitar Cotización COMMAX
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  const tabs = document.querySelectorAll<HTMLButtonElement>('.tab-btn');
+  const panels = document.querySelectorAll<HTMLElement>('.product-panel');
+
+  tabs.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.tab;
+
+      // Reset all tabs
+      tabs.forEach(t => {
+        t.classList.remove('bg-brand-blue', 'text-white', 'border-brand-blue');
+        t.classList.add('bg-white', 'text-slate-600', 'border-slate-200');
+      });
+
+      // Activate clicked tab
+      btn.classList.add('bg-brand-blue', 'text-white', 'border-brand-blue');
+      btn.classList.remove('bg-white', 'text-slate-600', 'border-slate-200');
+
+      // Show/hide panels
+      panels.forEach(panel => {
+        panel.classList.toggle('hidden', panel.id !== `panel-${target}`);
+      });
+    });
+  });
+</script>
