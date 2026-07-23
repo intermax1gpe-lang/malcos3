@@ -1,0 +1,44 @@
+---
+import { brands } from '../data/brands';
+
+const descriptions: Record<string, string> = {
+  commax: 'Intercomunicadores, videoporteros y sistemas de audio para casa, oficina y edificio.',
+  yusphone: 'Sistemas de intercomunicación residencial y de edificios con tecnología de punta.',
+  belcom: 'Porteros y sistemas de intercomunicación para casa y edificios.',
+  hikvision: 'Videoporteros IP, control de acceso y redes para casa y edificio.',
+};
+---
+
+<section id="catalogos" class="bg-white py-16 md:py-24">
+  <div class="max-w-7xl mx-auto px-6 md:px-12">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <span class="text-brand-orange text-xs font-extrabold uppercase tracking-widest mb-3 block">Nuestras Marcas</span>
+      <h2 class="text-3xl md:text-4xl font-black text-slate-900 uppercase leading-tight">
+        Explora Nuestro <span class="text-brand-blue">Catálogo</span>
+      </h2>
+      <p class="text-slate-500 text-sm mt-3">
+        Trabajamos con las marcas líderes en intercomunicación. Elige una para ver el catálogo completo.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {brands.map((b) => (
+        <a
+          href={`/marca/${b.slug}`}
+          class="group flex flex-col items-center text-center bg-white border border-slate-100 rounded-2xl p-8 hover:shadow-xl hover:border-brand-orange/40 transition-all duration-300"
+        >
+          <div class="h-12 flex items-center justify-center mb-5">
+            <img src={b.logo} alt={b.name} class="h-9 max-w-[140px] object-contain" />
+          </div>
+          <p class="text-slate-500 text-xs leading-relaxed mb-5 flex-1">{descriptions[b.slug]}</p>
+          <span class="inline-flex items-center gap-1.5 text-brand-blue text-xs font-extrabold uppercase tracking-wide group-hover:text-brand-orange transition-colors">
+            Ver catálogo completo
+            <svg class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

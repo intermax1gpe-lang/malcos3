@@ -25,9 +25,9 @@ export const brands: Brand[] = [
     subtitle: 'Edificios · Condominios',
   },
   {
-    slug: 'kocom',
-    name: 'KOCOM',
-    logo: '/brands/logo-kocom.png',
-    subtitle: 'Control de acceso',
+    slug: 'hikvision',
+    name: 'HIKVISION',
+    logo: '/brands/logo-hikvision.svg',
+    subtitle: 'Videoporteros IP · Redes',
   },
 ];

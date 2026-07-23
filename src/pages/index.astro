@@ -5,17 +5,13 @@ import Navbar from '../components/Navbar.astro';
 import Hero from '../components/Hero.astro';
 import Nosotros from '../components/Nosotros.astro';
 import CtaBanner from '../components/CtaBanner.astro';
+import MarcasResumen from '../components/MarcasResumen.astro';
 import Beneficios from '../components/Beneficios.astro';
 import Cotizacion from '../components/Cotizacion.astro';
 import TechBanner from '../components/TechBanner.astro';
 import Footer from '../components/Footer.astro';
 import WhatsAppFloat from '../components/WhatsAppFloat.astro';
-import CatalogSection from '../components/CatalogSection.astro';
 import CartDrawer from '../components/CartDrawer.astro';
-import { commaxProducts } from '../data/commaxProducts';
-import { yusphoneProducts } from '../data/yusphoneProducts';
-import { belcomProducts } from '../data/belcomProducts';
-import { kocomProducts } from '../data/kocomProducts';
 ---
 
 <Layout>
@@ -34,45 +30,8 @@ import { kocomProducts } from '../data/kocomProducts';
   <!-- Banner de Llamado a la Acción -->
   <CtaBanner />
 
-  <!-- Catálogo COMMAX -->
-  <CatalogSection
-    id="commax"
-    brandName="COMMAX"
-    logo="/brands/logo-commax.png"
-    description="Intercomunicadores, videoporteros y sistemas de audio para casa, oficina y edificio."
-    categories={commaxProducts}
-    bgColor="bg-white"
-  />
-
-  <!-- Catálogo YUSPHONE -->
-  <CatalogSection
-    id="yusphone"
-    brandName="YUSPHONE"
-    logo="/brands/logo-yusphone.png"
-    description="Sistemas de intercomunicación residencial y de edificios con tecnología de punta."
-    categories={yusphoneProducts}
-    bgColor="bg-slate-50"
-  />
-
-  <!-- Catálogo BELCOM -->
-  <CatalogSection
-    id="belcom"
-    brandName="BELCOM"
-    logo="/brands/logo-belcom.png"
-    description="Porteros y sistemas de intercomunicación para casa y edificios."
-    categories={belcomProducts}
-    bgColor="bg-white"
-  />
-
-  <!-- Catálogo KOCOM -->
-  <CatalogSection
-    id="kocom"
-    brandName="KOCOM"
-    logo="/brands/logo-kocom.png"
-    description="Sistemas digitales de intercomunicación para edificios y hoteles."
-    categories={kocomProducts}
-    bgColor="bg-slate-50"
-  />
+  <!-- Resumen de marcas / catálogos -->
+  <MarcasResumen />
 
   <!-- Cuadrícula de Beneficios -->
   <Beneficios />
