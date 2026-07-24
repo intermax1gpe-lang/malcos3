@@ -56,11 +56,13 @@ const slides = [
         href={`/marca/${b.slug}`}
         class="group flex flex-col items-center justify-center gap-2 py-6 px-4 border-r border-b border-white/10 md:border-b-0 last:border-r-0 hover:bg-brand-orange/15 transition-all duration-300"
       >
-        <img
-          src={b.logo}
-          alt={b.name}
-          class="h-7 md:h-9 object-contain brightness-100 invert-0 group-hover:brightness-110 transition-all duration-300"
-        />
+        <span class="bg-white rounded-lg px-4 py-2 shadow-sm flex items-center justify-center">
+          <img
+            src={b.logo}
+            alt={b.name}
+            class="h-7 md:h-9 object-contain group-hover:scale-105 transition-transform duration-300"
+          />
+        </span>
         <span class="text-slate-400 text-[10px] md:text-xs text-center font-medium">{b.subtitle}</span>
         <span class="text-brand-orange text-[10px] md:text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300">Ver productos →</span>
       </a>
