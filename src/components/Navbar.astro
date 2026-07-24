@@ -19,12 +19,12 @@ import { brands } from '../data/brands';
       </li>
     ))}
   </ul>
-  <div class="flex items-center shrink-0 pr-3">
-    <!-- Botón carrito -->
+  <div class="hidden sm:flex items-center shrink-0 pr-3">
+    <!-- Botón carrito (oculto en mobil, se muestra en el TopBar) -->
     <button
       id="navbar-cart-btn"
       aria-label="Ver cotización"
-      class="relative flex items-center gap-2 bg-brand-orange hover:bg-orange-500 transition-colors text-white text-xs font-extrabold uppercase tracking-wide px-3 py-2 rounded-lg"
+      class="cart-open-btn relative flex items-center gap-2 bg-brand-orange hover:bg-orange-500 transition-colors text-white text-xs font-extrabold uppercase tracking-wide px-3 py-2 rounded-lg"
     >
       <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
@@ -37,18 +37,22 @@ import { brands } from '../data/brands';
   </div>
 
   <script>
-    document.getElementById('navbar-cart-btn')?.addEventListener('click', () => {
-      window.dispatchEvent(new CustomEvent('cart:open'));
+    document.querySelectorAll('.cart-open-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        window.dispatchEvent(new CustomEvent('cart:open'));
+      });
     });
 
     function updateBadge() {
       try {
         const cart = JSON.parse(localStorage.getItem('malcos_cart') ?? '[]');
         const count = cart.reduce((s: number, i: { qty: number }) => s + i.qty, 0);
-        const badge = document.querySelector('[data-cart-badge]');
-        const wrap = document.querySelector('[data-cart-badge-wrap]');
-        if (badge) badge.textContent = String(count);
-        if (wrap) wrap.classList.toggle('hidden', count === 0);
+        document.querySelectorAll('[data-cart-badge]').forEach(badge => {
+          badge.textContent = String(count);
+        });
+        document.querySelectorAll('[data-cart-badge-wrap]').forEach(wrap => {
+          wrap.classList.toggle('hidden', count === 0);
+        });
       } catch {}
     }
 
