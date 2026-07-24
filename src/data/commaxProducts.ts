@@ -24,8 +24,8 @@ export const commaxProducts: ProductCategory[] = [
     slug: 'oficina',
     products: [
       { name: 'Portero de Audio DR-DW2N', img: '/images/products/DR-DW2N-commax.png', url: 'https://malcos.com.pe/producto/portero-de-audio-dr-dw2n/' },
-      { name: 'Intercom Audio TP-6RC', img: '/images/products/TP-6RC-commax.png', url: 'https://malcos.com.pe/producto/intercom-audio-tp-6rc/' },
-      { name: 'Intercom Audio TP-12RC', img: '/images/products/TP-12RC-commax.png', url: 'https://malcos.com.pe/producto/intercom-audio-tp-12rc/' },
+      { name: 'Intercom Audio TP-6RC', img: '/images/products/TP-6RC-commax.jpg', url: 'https://malcos.com.pe/producto/intercom-audio-tp-6rc/' },
+      { name: 'Intercom Audio TP-12RC', img: '/images/products/TP-12RC-commax.jpg', url: 'https://malcos.com.pe/producto/intercom-audio-tp-12rc/' },
       { name: 'Fuente RF-1A', img: '/images/products/RF-1A-commax.png', url: 'https://malcos.com.pe/producto/fuente-rf-1a/' },
     ],
   },
@@ -34,7 +34,7 @@ export const commaxProducts: ProductCategory[] = [
     slug: 'video-casa',
     products: [
       { name: 'Cámara Pin Hall DRC-4CGN', img: '/images/products/DRC-4CGN-commax.jpeg', url: 'https://malcos.com.pe/producto/camara-pin-hall-drc-4cgn/' },
-      { name: 'Monitor LCD 4.3" CDV-43K', img: '/images/products/CDV-43K-2-commax.png', url: 'https://malcos.com.pe/producto/monitor-lcd-4-3-cdv-43k/' },
+      { name: 'Monitor LCD 4.3" CDV-43K', img: '/images/products/CDV-43K-2-commax.jpg', url: 'https://malcos.com.pe/producto/monitor-lcd-4-3-cdv-43k/' },
       { name: 'Monitor LCD 7" CDV-70N2', img: '/images/products/CDV-70N2-commax.jpeg', url: 'https://malcos.com.pe/producto/monitor-lcd-de-7-cdv-70n2/' },
       { name: 'Anexo de Video DP-4VHP', img: '/images/products/DP-4VHP-commax.png', url: 'https://malcos.com.pe/producto/anexo-de-video-dp-4vhp/' },
     ],
