@@ -1,15 +1,27 @@
 ---
 import { brands } from '../data/brands';
+
+const slides = [
+  '/images/chico-intercomunicador.jpg',
+  '/images/banners/banner-commax.jpeg',
+  '/images/banners/banner-yusphone.jpeg',
+  '/images/banners/banner-belcom.jpeg',
+  '/images/banners/banner-hikvision.jpeg',
+];
 ---
 <section
   class="relative flex flex-col justify-between"
   style="min-height: calc(100vh - 80px);"
 >
-  <!-- Fondo con overlay -->
-  <div
-    class="absolute inset-0 bg-cover bg-center"
-    style="background-image: url('/images/chico-intercomunicador.jpg');"
-  ></div>
+  <!-- Fondo: slider automático -->
+  <div class="hero-slider absolute inset-0">
+    {slides.map((src, i) => (
+      <div
+        class="hero-slide absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out"
+        style={`background-image: url('${src}'); opacity: ${i === 0 ? 1 : 0};`}
+      ></div>
+    ))}
+  </div>
   <div class="absolute inset-0 bg-gradient-to-b from-[#0a1437]/75 via-[#0a1437]/60 to-black/85"></div>
 
   <!-- Contenido principal -->
@@ -55,3 +67,15 @@ import { brands } from '../data/brands';
     ))}
   </div>
 </section>
+
+<script>
+  const slides = document.querySelectorAll<HTMLElement>('.hero-slide');
+  if (slides.length > 1) {
+    let current = 0;
+    setInterval(() => {
+      slides[current].style.opacity = '0';
+      current = (current + 1) % slides.length;
+      slides[current].style.opacity = '1';
+    }, 5000);
+  }
+</script>
