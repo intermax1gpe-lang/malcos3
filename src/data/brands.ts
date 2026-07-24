@@ -27,7 +27,7 @@ export const brands: Brand[] = [
   {
     slug: 'hikvision',
     name: 'HIKVISION',
-    logo: '/brands/logo-hikvision.svg',
+    logo: '/brands/logo-hikvision.jpeg',
     subtitle: 'Videoporteros IP · Redes',
   },
 ];
