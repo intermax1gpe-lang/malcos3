@@ -35,7 +35,7 @@ export const commaxProducts: ProductCategory[] = [
     products: [
       { name: 'Cámara Pin Hall DRC-4CGN', img: '/images/products/DRC-4CGN-commax.jpeg', url: 'https://malcos.com.pe/producto/camara-pin-hall-drc-4cgn/' },
       { name: 'Monitor LCD 4.3" CDV-43K', img: '/images/products/CDV-43K-2-commax.png', url: 'https://malcos.com.pe/producto/monitor-lcd-4-3-cdv-43k/' },
-      { name: 'Monitor LCD 7" CDV-70N2', img: '/images/products/CDV-70N2-commax.png', url: 'https://malcos.com.pe/producto/monitor-lcd-de-7-cdv-70n2/' },
+      { name: 'Monitor LCD 7" CDV-70N2', img: '/images/products/CDV-70N2-commax.jpeg', url: 'https://malcos.com.pe/producto/monitor-lcd-de-7-cdv-70n2/' },
       { name: 'Anexo de Video DP-4VHP', img: '/images/products/DP-4VHP-commax.png', url: 'https://malcos.com.pe/producto/anexo-de-video-dp-4vhp/' },
     ],
   },
@@ -89,7 +89,7 @@ export const commaxProducts: ProductCategory[] = [
     products: [
       { name: 'Portero Cámara Digital DRC-GUC', img: '/images/products/DRC-GUC-2-commax.png', url: 'https://malcos.com.pe/producto/portero-camara-digital-drc-guc/' },
       { name: 'Central de Conserjería CDS-4GS', img: '/images/products/CDS-4GS-2-commax.png', url: 'https://malcos.com.pe/producto/central-de-conserjeria-cds-4gs/' },
-      { name: 'Monitor LCD 4.3 Digital CAV-43MHG', img: '/images/products/CAV-43MHG-commax.png', url: 'https://malcos.com.pe/producto/monitor-lcd-4-3-digital-cav-43mhg/' },
+      { name: 'Monitor LCD 4.3 Digital CAV-43MHG', img: '/images/products/CAV-43MHG-commax.jpeg', url: 'https://malcos.com.pe/producto/monitor-lcd-4-3-digital-cav-43mhg/' },
       { name: 'Intercom de Audio Digital AP-3SG', img: '/images/products/AP-3SG-commax.png', url: 'https://malcos.com.pe/producto/intercom-de-audio-digital-ap-3sg/' },
       { name: 'Distribuidor de Video Digital CCU-4GF', img: '/images/products/CCU-4GF-2-commax.png', url: 'https://malcos.com.pe/producto/distribuidor-de-video-digital-ccu-4gf/' },
     ],
