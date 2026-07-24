@@ -2,17 +2,17 @@
 import { brands } from '../data/brands';
 ---
 <nav class="bg-brand-blue sticky top-0 z-50 shadow-md flex items-center">
-  <ul class="flex overflow-x-auto flex-nowrap flex-1 min-w-0 scrollbar-none">
-    <li class="shrink-0">
-      <a href="/" class="block px-4 py-4 text-white text-xs font-bold uppercase tracking-wide bg-black/20 hover:bg-black/30 transition-colors whitespace-nowrap">
+  <ul class="flex w-full sm:flex-1 sm:min-w-0">
+    <li class="flex-1 min-w-0 sm:flex-none sm:shrink-0">
+      <a href="/" class="flex items-center justify-center text-center px-1 sm:px-4 py-4 text-white text-[10px] sm:text-xs font-bold uppercase tracking-wide bg-black/20 hover:bg-black/30 transition-colors whitespace-nowrap">
         Inicio
       </a>
     </li>
     {brands.map((b) => (
-      <li class="shrink-0">
+      <li class="flex-1 min-w-0 sm:flex-none sm:shrink-0">
         <a
           href={`/marca/${b.slug}`}
-          class="block px-4 py-4 text-white text-xs font-bold uppercase tracking-wide hover:bg-black/15 transition-colors whitespace-nowrap"
+          class="flex items-center justify-center text-center px-1 sm:px-4 py-4 text-white text-[10px] sm:text-xs font-bold uppercase tracking-wide hover:bg-black/15 transition-colors whitespace-nowrap"
         >
           {b.name}
         </a>
